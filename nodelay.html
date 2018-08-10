@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        width: 100%;
+      }
+
+      #viewport {
+        height: 100%;
+        overflow: scroll;
+        width: 100%;
+      }
+
+      #world {
+        background: repeating-linear-gradient(45deg, #3f87a6, #ebf8e1 100px);
+        height: 3000px;
+        position: relative;
+        width: 3000px;
+      }
+
+      #item {
+        background: rgba(255, 255, 255, .6);
+        border: 1px solid black;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        margin: 10px;
+        position: absolute;
+        height: 150px;
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="viewport">
+      <div id="world">
+        <div id="item">
+          Example
+        </div>
+      </div>
+    </div>
+    <script>
+      const viewport = document.getElementById('viewport');
+      const item = document.getElementById('item');
+
+      viewport.addEventListener('scroll', function() {
+          const start = new Date();
+          item.style.top = this.scrollTop + 'px';
+          item.style.left = this.scrollLeft + 'px';
+        });
+    </script>
+  </body>
+</html>
